@@ -1,0 +1,101 @@
+name: TheraTalk
+options:
+  deploymentTarget:
+    iOS: 17.0
+configs:
+  Debug: debug
+  Release: release
+settings:
+  base:
+    SWIFT_VERSION: 5.9
+    PRODUCT_BUNDLE_IDENTIFIER: com.example.TheraTalk
+    IPHONEOS_DEPLOYMENT_TARGET: 17.0
+
+targets:
+  TheraTalk:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+        excludes:
+          - Resources/Assets.xcassets/**
+    resources:
+      - App/Resources
+    info:
+      path: App/Resources/Info.plist
+    dependencies:
+      - target: Domain
+      - target: Services
+      - target: DataLayer
+      - target: DesignSystem
+      - target: Features
+
+  Domain:
+    type: framework
+    platform: iOS
+    sources: [Domain]
+    settings:
+      base:
+        PRODUCT_NAME: Domain
+        DEFINES_MODULE: YES
+
+  Services:
+    type: framework
+    platform: iOS
+    sources: [Services]
+    settings:
+      base:
+        PRODUCT_NAME: Services
+        DEFINES_MODULE: YES
+    dependencies:
+      - target: Domain
+
+  DataLayer:
+    type: framework
+    platform: iOS
+    sources: [Data]
+    settings:
+      base:
+        PRODUCT_NAME: DataLayer
+        DEFINES_MODULE: YES
+    dependencies:
+      - target: Domain
+
+  DesignSystem:
+    type: framework
+    platform: iOS
+    sources: [DesignSystem]
+    settings:
+      base:
+        PRODUCT_NAME: DesignSystem
+        DEFINES_MODULE: YES
+    dependencies:
+      - target: Domain
+
+  Features:
+    type: framework
+    platform: iOS
+    sources: [Features]
+    settings:
+      base:
+        PRODUCT_NAME: Features
+        DEFINES_MODULE: YES
+    dependencies:
+      - target: Domain
+      - target: Services
+      - target: DataLayer
+      - target: DesignSystem
+schemes:
+  TheraTalk:
+    build:
+      targets:
+        TheraTalk: [run, archive]
+        Domain: [run]
+        Services: [run]
+        DataLayer: [run]
+        DesignSystem: [run]
+        Features: [run]
+    run:
+      config: Debug
+    archive:
+      config: Release
