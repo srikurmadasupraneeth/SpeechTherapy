@@ -21,7 +21,15 @@ public struct FacePracticeView: View {
         }
         .padding()
         .onAppear {
-            container.faceTracking.onMetrics = { new in metrics = new }
+            if container.isDemoMode {
+                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+                    let t = Date().timeIntervalSince1970
+                    metrics["jawOpen"] = (sin(t * 2) * 0.25 + 0.5).clamped(to: 0...1)
+                    metrics["mouthFunnel"] = (cos(t * 1.6) * 0.2 + 0.3).clamped(to: 0...1)
+                }
+            } else {
+                container.faceTracking.onMetrics = { new in metrics = new }
+            }
         }
     }
 

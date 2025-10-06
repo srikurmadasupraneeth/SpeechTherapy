@@ -46,17 +46,25 @@ public struct SpeechPracticeView: View {
             authorized = container.speechRecognition.isAuthorized
         }
         do { try container.audioCapture.configure(sampleRate: 22050) } catch { }
-        container.audioCapture.onBuffer = { buffer in
-            container.speechRecognition.appendAudioPCMBuffer(buffer)
-        }
-        container.audioCapture.onMetrics = { metrics in
-            level = metrics["level"] ?? 0
-        }
-        container.speechRecognition.partialTextHandler = { text in
-            recognizedText = text
-        }
-        container.speechRecognition.finalTextHandler = { text in
-            recognizedText = text
+        if container.isDemoMode {
+            // Simulate wave and captions
+            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+                level = Double((sin(Date().timeIntervalSince1970 * 4).advanced(by: 1)) * 0.5).clamped(to: 0...1)
+            }
+            recognizedText = "Hello"
+        } else {
+            container.audioCapture.onBuffer = { buffer in
+                container.speechRecognition.appendAudioPCMBuffer(buffer)
+            }
+            container.audioCapture.onMetrics = { metrics in
+                level = metrics["level"] ?? 0
+            }
+            container.speechRecognition.partialTextHandler = { text in
+                recognizedText = text
+            }
+            container.speechRecognition.finalTextHandler = { text in
+                recognizedText = text
+            }
         }
     }
 

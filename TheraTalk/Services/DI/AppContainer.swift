@@ -2,6 +2,7 @@ import Foundation
 import Combine
 
 public final class AppContainer: ObservableObject {
+    @Published public var isDemoMode: Bool = false
     public let audioCapture: AudioCaptureService
     public let speechRecognition: SpeechRecognitionService
     public let dsp: DSPFeatureService

@@ -1,5 +1,6 @@
 import Foundation
 import Speech
+import AVFoundation
 
 public protocol SpeechRecognitionService: AnyObject {
     var isAuthorized: Bool { get }
