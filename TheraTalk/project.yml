@@ -23,6 +23,11 @@ targets:
       - App/Resources
     info:
       path: App/Resources/Info.plist
+    settings:
+      base:
+        ENABLE_BITCODE: NO
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
     dependencies:
       - target: Domain
       - target: Services
@@ -80,6 +85,12 @@ targets:
       base:
         PRODUCT_NAME: Features
         DEFINES_MODULE: YES
+    dependencies:
+      - sdk: ARKit.framework
+      - sdk: Vision.framework
+      - sdk: AVFAudio.framework
+      - sdk: Speech.framework
+      - sdk: Charts.framework
     dependencies:
       - target: Domain
       - target: Services

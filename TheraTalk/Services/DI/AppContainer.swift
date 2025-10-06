@@ -24,11 +24,11 @@ public final class AppContainer: ObservableObject {
     }
 
     public static func mock() -> AppContainer {
-        AppContainer(audioCapture: MockAudioCaptureService(),
-                     speechRecognition: MockSpeechRecognitionService(),
+        AppContainer(audioCapture: RealtimeAudioCaptureService(),
+                     speechRecognition: AppleSpeechRecognitionService(),
                      dsp: MockDSPFeatureService(),
-                     faceTracking: MockFaceTrackingService(),
-                     feedback: MockFeedbackEngine(),
-                     exporter: MockExportService())
+                     faceTracking: ARKitFaceTrackingService(),
+                     feedback: HeuristicFeedbackEngine(),
+                     exporter: PDFExportService())
     }
 }

@@ -28,6 +28,8 @@
 	<string>Camera access is needed for facial motion guidance.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Microphone access is needed for speech practice.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Speech recognition helps provide real-time pronunciation feedback.</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Automatic</string>
 </dict>
