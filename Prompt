@@ -1,0 +1,23 @@
+I want to build a *native iOS AI-powered Speech & Facial Therapy app* using *Swift and SwiftUI*.  
+
+*Goal:* Help users (children and adults with speech disorders) practice *speech and facial exercises* with *real-time feedback* using only the iPhone’s microphone and camera.  
+
+*Key Features:*
+1.⁠ ⁠Speech recognition & feedback (word correctness, pronunciation, loudness, intonation) using Apple Speech Framework or on-device ML
+2.⁠ ⁠Facial motion detection (lips, jaw, tongue, cheeks) with instant guidance using Vision / Core ML / MediaPipe
+3.⁠ ⁠AI feedback engine (on-device Core ML models)
+4.⁠ ⁠Progress tracking & reports (charts, session history, shareable with therapists)
+5.⁠ ⁠Gamification (points, badges, levels, mini-games)
+6.⁠ ⁠Offline mode (core functionality works offline)
+7.⁠ ⁠Multi-language support (English, Hindi, Tamil)
+8.⁠ ⁠Privacy & security (encrypted data, camera/mic access only when needed)
+
+*Please provide:*
+•⁠  ⁠Step-by-step development plan for native iOS
+•⁠  ⁠UI/UX screen suggestions for kids and adults
+•⁠  ⁠Recommended ML models, plugins, and architecture
+•⁠  ⁠Folder structure and Swift tech stack
+•⁠  ⁠Gamified mini-game ideas (easiest → hardest)
+•⁠  ⁠References/resources for learning & implementation
+
+Output in a *clear, structured, developer-ready format*.
